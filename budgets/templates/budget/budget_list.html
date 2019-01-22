@@ -5,5 +5,11 @@
 {% endblock title %}
 
 {% block content %}
-<h2>Budget List</h2>
+<h2>My Budgets</h2>
+{% for budget in budgets %}
+<p>{{ budget.name }}</p>
+{% endfor %}
+
+
+
 {% endblock content %}

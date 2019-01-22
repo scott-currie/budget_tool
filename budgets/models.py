@@ -3,7 +3,7 @@ from django.db import models
 
 class Budget(models.Model):
     """Class representing Budget objects."""
-    id = models.IntegerField(primary_key=True)
+    # id = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='budgets')
     name = models.CharField(max_length=1024)
     total_budget = models.FloatField()
@@ -12,7 +12,7 @@ class Budget(models.Model):
 
 class Transaction(models.Model):
     """Class representing Transaction objects"""
-    id = models.IntegerField(primary_key=True)
+    # id = models.IntegerField(primary_key=True)
     budget = models.ForeignKey(Budget, on_delete=models.CASCADE, related_name='transactions')
     TRANS_TYPES = [('withdrawal', 'Withdrawal'),
                    ('deposit', 'Deposit')]

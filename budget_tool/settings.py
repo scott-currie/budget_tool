@@ -31,6 +31,9 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split()
 # Application definition
 
 INSTALLED_APPS = [
+    'budget_tool',
+    'budgets',
+    'django_registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

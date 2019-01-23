@@ -6,6 +6,7 @@
 
 {% block content %}
 <h2>My Budgets</h2>
+<p><a href="{% url "budget_create" %}">Add a new budget</a></p>
 <ul>
 {% for budget in budgets %}
 <li><a href="{% url "budget_detail" budget.id %}">{{ budget.name }}</a></li>

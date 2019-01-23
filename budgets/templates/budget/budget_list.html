@@ -6,10 +6,11 @@
 
 {% block content %}
 <h2>My Budgets</h2>
+<ul>
 {% for budget in budgets %}
-<p>{{ budget.name }}</p>
+<li><a href="{% url "budget_detail" budget.id %}">{{ budget.name }}</a></li>
 {% endfor %}
-
+</ul>
 
 
 {% endblock content %}

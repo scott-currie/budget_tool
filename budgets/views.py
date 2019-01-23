@@ -22,9 +22,14 @@ class BudgetListView(LoginRequiredMixin, ListView):
 class BudgetDetailView(LoginRequiredMixin, DetailView):
     template_name = 'budget/budget_detail.html'
     model = Transaction
-    context_object_name = 'transaction'
+    context_object_name = 'transactions'
     login_url = reverse_lazy('login')
     pk_url_kwarg = 'id'
 
     def get_queryset(self):
-        return Transaction.objects.filter(budget__user__username=self.request.user.username)
+        return Transaction.objects.filter(budget__id=self.kwargs[self.pk_url_kwarg])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['transactions'] = Transaction.objects.filter(budget__id=self.kwargs[self.pk_url_kwarg])
+        return context

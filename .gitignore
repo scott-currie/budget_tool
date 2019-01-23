@@ -114,16 +114,11 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# CSV Files
-
 
 # AWM PEM File
 *.pem
 .pem
 
-# Bash Scripts
-*.sh
-.sh
 
 # json files
 sg_id.json

@@ -5,5 +5,12 @@
 {% endblock title %}
 
 {% block content %}
-<h2>Budget List</h2>
+<h2>My Budgets</h2>
+<ul>
+{% for budget in budgets %}
+<li><a href="{% url "budget_detail" budget.id %}">{{ budget.name }}</a></li>
+{% endfor %}
+</ul>
+
+
 {% endblock content %}

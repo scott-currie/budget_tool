@@ -5,5 +5,17 @@
 {% endblock title %}
 
 {% block content %}
-<h2>Transaction Detail</h2>
+<h2>Transactions</h2>
+<table>
+  <th>Type</th>
+  <th>Amount</th>
+  <th>Description</th>
+{% for transaction in transactions %}
+<tr>
+  <td>{{transaction.type }}</td>
+  <td>{{transaction.amount }}</td>
+  <td>{{transaction.description }}</td>
+{% endfor %}
+</tr>
+</table>
 {% endblock content %}

@@ -12,6 +12,8 @@ django-registration = "*"
 faker = "*"
 coverage = "*"
 factory-boy = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.6"

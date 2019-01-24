@@ -1,7 +1,9 @@
 confusable-homoglyphs==3.2.0
 coverage==4.5.2
 Django==2.1.5
+django-cors-headers==2.4.0
 django-registration==3.0
+djangorestframework==3.9.1
 extras==1.0.0
 factory-boy==2.11.1
 Faker==1.0.2

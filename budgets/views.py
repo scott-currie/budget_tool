@@ -16,7 +16,8 @@ class BudgetListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['budgets'] = Budget.objects.filter(user__username=self.request.user.username)
+        context['budgets'] = Budget.objects.filter(
+            user__username=self.request.user.username)
         return context
 
 
@@ -28,11 +29,13 @@ class BudgetDetailView(LoginRequiredMixin, DetailView):
     pk_url_kwarg = 'id'
 
     def get_queryset(self):
-        return Transaction.objects.filter(budget__id=self.kwargs[self.pk_url_kwarg])
+        return Transaction.objects.filter(
+            budget__id=self.kwargs[self.pk_url_kwarg])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['transactions'] = Transaction.objects.filter(budget__id=self.kwargs[self.pk_url_kwarg])
+        context['transactions'] = Transaction.objects.filter(
+            budget__id=self.kwargs[self.pk_url_kwarg])
         return context
 
 

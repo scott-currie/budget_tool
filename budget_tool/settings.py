@@ -33,6 +33,10 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split()
 INSTALLED_APPS = [
     'budget_tool',
     'budgets',
+    'budget_api',
+    'corsheaders',
+    'rest_framework.authtoken',
+    'rest_framework',
     'django_registration',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -134,3 +139,16 @@ ACCOUNT_ACTIVATION_DAYS = 1
 LOGIN_REDIRECT_URL = '/'
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
+CORS_ORIGIN_WHITELIST = tuple(
+    os.environ.get(
+        'CORS_ORIGIN_WHITELIST',
+        'http://localhost:3000/',
+    ).split()
+)

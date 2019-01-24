@@ -1,7 +1,7 @@
 from rest_framework import generics
-from .serializers import UserSerializer
+from .serializers import UserSerializer, User
 from rest_framework.authentication import TokenAuthentication
-from django.contrib.auth.models import User
+
 
 class UserApiView(generics.RetrieveAPIView):
     """CBV to handle requests for users on REST API.
@@ -21,4 +21,3 @@ class RegisterApiView(generics.CreateAPIView):
     permission_classes = ''
     authentication_classes = (TokenAuthentication,)
     serializer_class = UserSerializer
-

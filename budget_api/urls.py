@@ -32,8 +32,8 @@ urlpatterns = [
     path(
         'transaction',
         TransactionListApiView.as_view(),
-        name='transaction_api_create'),
+        name='transaction_api_list'),
     path(
         'transaction/<int:pk>',
         TransactionDetailApiView.as_view(),
-        name='transaction_api_list')]
+        name='transaction_api_detail')]

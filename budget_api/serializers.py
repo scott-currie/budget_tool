@@ -9,7 +9,13 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name')
+        fields = (
+            'id',
+            'username',
+            'email',
+            'password',
+            'first_name',
+            'last_name')
 
     def create(self, validated_data):
         user = super().create({
@@ -26,17 +32,15 @@ class BudgetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Budget
-        fields = ('name', 'total_budget', 'remaining_budget')
-
-    # def create(selfself, validated_data):
-    #
-    #
-    #     return budget
+        fields = ('id', 'name', 'total_budget', 'remaining_budget')
 
 
 class TransactionSerializer(serializers.ModelSerializer):
     """Create serialized Transaction objects through the API."""
     # return transaction
+    budget = serializers.HyperlinkedRelatedField(
+        view_name='budget_api_detail', read_only=True)
+
     class Meta:
         model = Transaction
-        fields = ('type', 'amount', 'description')
+        fields = ('id', 'budget', 'type', 'amount', 'description')

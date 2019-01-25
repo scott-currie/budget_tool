@@ -17,5 +17,3 @@ class Transaction(models.Model):
     type = models.CharField(max_length=1024, choices=TRANS_TYPES)
     amount = models.FloatField()
     description = models.CharField(max_length=1024)
-
-

@@ -35,7 +35,7 @@ class BudgetSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'total_budget', 'remaining_budget')
 
 
-class TransactionSerializer(serializers.ModelSerializer):
+class TransactionSerializer(serializers.HyperlinkedModelSerializer):
     """Create serialized Transaction objects through the API."""
     # return transaction
     budget = serializers.HyperlinkedRelatedField(
